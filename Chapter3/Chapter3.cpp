@@ -5,7 +5,7 @@ int main(){
     char choice;
     do{
         std::cout << "\nPROGRAMS FROM CHAPTER 3";
-        std::cout << "\n A. Miles Per Gallon\n B. Stadium Seating";
+        std::cout << "\nA. Miles Per Gallon\nB. Stadium Seating";
         std::cout << "\n\nSELECTION: ";
         std::cin.get(choice);
 
@@ -20,6 +20,47 @@ int main(){
                 std::cin >> miles;
                 MPG = miles / gallons;
                 std::cout << "\nMPG: " << std::setw(7) << MPG;
+                break;
+            }
+            case 'B':{
+                
+                char ticket;
+                double ticket_price, income = 0;
+                int quantity;
+                do{
+                    do{
+                        std::cout << "\nTicket Prices\n\nClass A: $ 15.00\tClass B: $ 12.00\nClass C: $  9.00\n";
+                        std::cout << "\nEnter D to finish buying\n";
+                        std::cout << "\nWhich ticket class would you like: ";
+                        std::cin.ignore();
+                        std::cin.get(ticket);
+                        switch(ticket){
+                            case 'A': 
+                                ticket_price = 15.00;
+                                break;
+                            case 'B': 
+                                ticket_price = 12.00;
+                                break;
+                            case 'C':
+                                ticket_price = 9.00;
+                                break;
+                            case 'D':
+                                std::cout << "\nSHUTTING DOWN\n";
+                                break;
+                            default:
+                                std::cout << "\nINVALID INPUT\n";
+                                break;
+                        }
+                    }while(ticket < 'A' || ticket > 'D' );
+                    
+                    if(ticket != 'D'){
+                        std::cout << "Enter number of tickets of selected class: ";
+                        std::cin >> quantity;
+                        income += quantity * ticket_price;
+                    }   
+
+                }while(ticket != 'D');
+                std::cout << "\nTotal Sales: " << std::showpoint << std::setprecision(2) << std::fixed << income;
                 break;
             }
             default:{
