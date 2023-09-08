@@ -5,7 +5,7 @@ int main(){
     char choice;
     do{
         std::cout << "\nPROGRAMS FROM CHAPTER 3";
-        std::cout << "\nA. Miles Per Gallon\nB. Stadium Seating";
+        std::cout << "\nA. Miles Per Gallon\nB. Stadium Seating\nC. Test Average";
         std::cout << "\n\nSELECTION: ";
         std::cin.get(choice);
 
@@ -61,6 +61,22 @@ int main(){
 
                 }while(ticket != 'D');
                 std::cout << "\nTotal Sales: " << std::showpoint << std::setprecision(2) << std::fixed << income;
+                break;
+            }
+            case 'C':{
+                float scores[5];
+                float sum, average;
+                
+                std::cout << "\n";
+                
+                for(short index = 0; index < (sizeof(scores) / sizeof(scores[0])); index++){
+                    std::cout << "Enter score # " << (index + 1) << ": ";
+                    std::cin >> scores[index];
+                    sum += scores[index];
+                }
+
+                average = sum / (sizeof(scores) / sizeof(scores[0]));
+                std::cout << "\nAverage: " << std::showpoint << std::setprecision(1) << std::fixed << average;
                 break;
             }
             default:{
