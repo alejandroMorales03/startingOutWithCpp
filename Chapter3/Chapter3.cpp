@@ -1,6 +1,8 @@
 #include <iostream>
 #include <iomanip>
 #include <cmath>
+#include <ctime>
+#include <cstdlib>
 
 int main(){
     char choice;
@@ -13,6 +15,9 @@ int main(){
                 std::cout << "\nG. Box Office\nH. How Many Widgets\nI. How Many Calories";
                 std::cout << "\nJ. How Much Insurance\nK. Automobile Costs\nL. Celsius to Fahrenheit";
                 std::cout << "\nM. Currency\nN. Monthly Sales Tax\nO. Property Tax\nP. Senior Citizen Property Tax";
+                std::cout << "\nQ. Math Tutor\nR. Interest Earned\nS. Monthly Payments\nT. Pizza Pi";
+                std::cout << "\nU. How Mnay Pizzas\nV. Angle Calculator\nW. Stock Transmission Program";
+                std::cout << "\nX. Word Game\nY. Quit";
                 std::cout << "\n\nSELECTION: ";
                 std::cin.get(choice);
                 if(!isalpha(choice) || islower(choice)){
@@ -318,7 +323,76 @@ int main(){
 
                     std::cout << "\nProperty Tax: $ " << std::setw(14) << property_tax;
                     std::cout << "\nQuaterly Payment: $ " << std::setw(10) << qtly_payment;
+                    break;
+                }
+                case 'Q':{
+                    unsigned seed = time(0);
+                    srand(seed);
+                    short num1 = rand();
+                    short num2 = rand();
 
+                    std::cout << "\n" << std::setw(10) << num1;
+                    std::cout << "\n" << std::setw(10) << num2;
+                    std::cout << "\n" << "+ --------";
+                    std::cout << "\n\nPress any key to display answer: ";
+                    std::cin.ignore();
+                    std::cin.get();
+                    
+                    std::cout << "\n" << num1 + num2;
+                    break;
+                }
+                case 'R':{
+                    float principal, int_rate, comp_num, interest_amt, amt_svgs;
+
+                    std::cout << "\nEnter principal: $ ";
+                    std::cin >> principal;
+                    std::cout << "Enter Interest Rate (%): ";
+                    std::cin >> int_rate;
+                    std::cout << "Enter the number of times interest is compounded annually: ";
+                    std::cin >> comp_num;
+                    int_rate /= 100;
+                    amt_svgs = principal * pow((1 + int_rate / comp_num), comp_num);
+                    interest_amt = amt_svgs - principal;
+                    std::cout << "\nInterest Rate: " << std::setw(18) << int_rate * 100 << " %";
+                    std::cout << "\nTimed Compounded: " << std::setw(15) << comp_num;
+                    std::cout << "\nPrincipal: $ " << std::setw(20) << principal;
+                    std::cout << "\nInterest Amount: $ " << std::setw(14) << interest_amt;
+                    std::cout << "\nAmount in Savings: $ " << std::setw(12) << amt_svgs;
+                    break;
+                }
+                case 'S':{
+                    float loan_amount, annual_int_rate, payment;
+                    short number_payments;
+                   
+                    std::cout << "\nEnter loan amount: $ ";
+                    std::cin >> loan_amount;
+                    std::cout << "Enter Annual Interest Rate (%): ";
+                    std::cin >> annual_int_rate;
+                    annual_int_rate /= 12;
+                    std::cout << "Enter number of payments: ";
+                    std::cin >> number_payments;
+
+                    payment = ((annual_int_rate/100 * pow((1 + annual_int_rate/100), number_payments))/
+                              ((pow((1 + annual_int_rate/100), number_payments)) - 1)) * loan_amount;
+
+
+                    std::cout << "\nLoan Amount: $ " << std::setw(22) << loan_amount;
+                    std::cout << "\nMonthly Interest Rate (%): " << std::setw(10) << annual_int_rate;
+                    std::cout << "\nNumber of Payments: " << std::setw(17) << number_payments;
+                    std::cout << "\nMonthly Payment: $ " << std::setw(18) << payment;
+                    std::cout << "\nAmount Paid Back: $ " << std::setw(17) << payment * number_payments;
+                    std::cout << "\nInterest Paid Back: $ "  << std::setw(15) << payment * number_payments - loan_amount;
+                    break;
+                }
+                case 'T':{
+                    const float PI = 3.14159, SLICE_AREA = 14.125;
+                    float diameter;
+                    short slices;
+
+                    std::cout << "\nEnter diameter of the pizza (in): ";
+                    std::cin >> diameter;
+                    slices = PI * pow((diameter/2), 2) / SLICE_AREA;
+                    std::cout << "\n" << slices << " Slices";
                 }
                 default:{
                     std::cout << "\n\nINVALID INPUT";
@@ -326,11 +400,12 @@ int main(){
                 }
             }
             std::cout << "\n\n";
-            if(isalpha(choice))
-                std::cin.ignore();
+            if(choice != 'Q')
+                std::cin.ignore()
+;            
         
 
             
-        }while(choice < 'A'|| choice > 'Y');
-}while(choice != 'Z');
+        }while(choice < 'A'|| choice > 'X');
+}while(choice != 'Y');
 }
