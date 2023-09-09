@@ -415,9 +415,54 @@ int main(){
                     std::cout << std::setprecision(4) << std::fixed;
                     std::cout << "\nEnter an angle in radians: ";
                     std::cin >> angle;
-                    std::cout << "\nSine: " << std::setw(10) << sin(angle);
-                    std::cout << "\nCosine: " << std::setw(8) << cos(angle);
-                    std::cout << "\nTangent: " << std::setw(8) << tan(angle);
+                    std::cout << "\nSine: " << std::setw(12) << sin(angle);
+                    std::cout << "\nCosine: " << std::setw(10) << cos(angle);
+                    std::cout << "\nTangent: " << std::setw(9) << tan(angle);
+                    break;
+                }
+                case 'W':{
+                    const float SHARES = 1000, BUY_PRICE = 45.50, SELL_PRICE = 56.90, COMISSION_RATE = 0.02;
+                    float profit = - ((SHARES * BUY_PRICE) * (1 + COMISSION_RATE)) + (SHARES * SELL_PRICE) - (SHARES * SELL_PRICE * COMISSION_RATE);
+
+                    std::cout << "\nAmount Piad: $ " << std::setw(18) << SHARES * BUY_PRICE;
+                    std::cout << "\nBroker Comission: $ " << std::setw(13) << SHARES * BUY_PRICE * COMISSION_RATE;
+                    std::cout << "\nSell Price: $ " << std::setw(19) << SHARES * SELL_PRICE;
+                    std::cout << "\nBroker Comission: $ " << std::setw(13) << SHARES * SELL_PRICE * COMISSION_RATE;
+                    std::cout << "\nProfit: $ " << std::setw(23) << profit;
+                    break;
+                }
+                
+                case 'X':{
+                
+                    std::string name, city, college, profession, animal, pet_name;
+                    short age;
+                    std::cin.ignore();
+                    std::cout << "\nEnter the follwoing information: \n\n";
+                    std::cout << "Name: ";
+                    getline(std::cin, name);
+                    std::cout << "Age: ";
+                    std::cin >> age;
+                    std::cin.ignore();
+                    std::cout << "Name of a City: ";
+                    getline(std::cin, city);
+                    std::cout << "Name of a college: ";
+                    getline(std::cin, college);
+                    std::cout << "A profession: ";
+                    getline(std::cin, profession);
+                    std::cout << "An animal: ";
+                    getline(std::cin, animal);
+                    std::cout << "A pet's name: ";
+                    getline(std::cin, pet_name);
+
+                    std::cout << "\nThere once was a person named " << name << " who lived in " << city << ".";
+                    std::cout << " At the age of " << age << ", " << name <<  " went to college at " << college << ". ";
+                    std::cout << name <<  " graduated and went to work as a "  << profession << ". Then, " << name << " adopted";
+                    std::cout << " an " << animal << " named " <<  pet_name << ". They both lived happily ever afeter."; 
+                    break;
+
+                }
+                case 'Y':{
+                    std::cout << "\nSHUTTING DOWN...";
                     break;
                 }
                 default:{
@@ -427,11 +472,7 @@ int main(){
             }
             std::cout << "\n\n";
             if(choice != 'Q')
-                std::cin.ignore()
-;            
-        
-
-            
-        }while(choice < 'A'|| choice > 'X');
-}while(choice != 'Y');
+                std::cin.ignore();       
+        }while(choice) < 'A'|| choice > 'Y');
+    }while(choice != 'Y');
 }
