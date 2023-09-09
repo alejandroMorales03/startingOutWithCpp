@@ -393,6 +393,32 @@ int main(){
                     std::cin >> diameter;
                     slices = PI * pow((diameter/2), 2) / SLICE_AREA;
                     std::cout << "\n" << slices << " Slices";
+                    break;
+                }
+                case 'U':{
+                    const float PI = 3.14159, SLICE_AREA = 14.125, SLICES_PER_PERSON = 4;
+                    float diameter;
+                    short slices, people, pizzas;
+
+                    std::cout << "\nEnter number of people attending: ";
+                    std::cin >> people;
+                    std::cout << "Enter diameter of the pizza (in): ";
+                    std::cin >> diameter;
+                    slices = PI * pow((diameter/2), 2) / SLICE_AREA;
+                    pizzas = people * SLICES_PER_PERSON / slices;
+
+                    std::cout << "\n" << pizzas << " pizzas";
+                    break;
+                }
+                case 'V':{
+                    float angle;
+                    std::cout << std::setprecision(4) << std::fixed;
+                    std::cout << "\nEnter an angle in radians: ";
+                    std::cin >> angle;
+                    std::cout << "\nSine: " << std::setw(10) << sin(angle);
+                    std::cout << "\nCosine: " << std::setw(8) << cos(angle);
+                    std::cout << "\nTangent: " << std::setw(8) << tan(angle);
+                    break;
                 }
                 default:{
                     std::cout << "\n\nINVALID INPUT";
