@@ -64,6 +64,10 @@
         "utility": "cpp",
         "vector": "cpp",
         "numeric": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "memory_resource": "cpp",
+        "fstream": "cpp"
     }
 }

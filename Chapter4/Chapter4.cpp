@@ -14,6 +14,10 @@ int main(){
         std::cout << "\n10. Days in a Month \n11. Math Tutor\n12. Software Sales";
         std::cout << "\n13. Book Club Points\n14. Bank Charges\n15. Shipping Charges";
         std::cout << "\n16. Running the Race\n17. Personal Best\n18. Fat Gram Calculator";
+        std::cout << "\n19. Spectral Analysis\n20. The Speed of Sound\n21. The Speed of Sound in Gasses";
+        std::cout << "\n22. Feezing and Boiling Points\n23. Geometry Calculator\n24. Long-Distance Calls";
+        std::cout << "\n25. Mobile Service Provider \n26. Mobile Service Provider Part 2\n27. Mobile Service Provider Part 3";
+        std::cout << "\n28. Quit";
         std::cout << "\n\nSelection: ";
         std::cin >> choice;
 
@@ -517,9 +521,187 @@ int main(){
                 }while(selection < 1 || selection > 3||distance < 0);
                 
                 std::cout << "Time: " << distance * 1/SPEEDS[selection - 1];
-                 break;
-       
+                break;   
+            }
+            case 21:{
+                float seconds, distance;
+                short selection;
+                float SPEED[] = {258.0, 331.5, 972.0, 1270.0};
+
+                do{
+                    std::cout << "\nSelect a medium: \n\n1. Carbon Dioxide\n2. Air\n3. Helium\n4. Hydrogen\n\n";
+                    std::cout << "Selection: ";
+                    std::cin >> selection;
+                    if(selection < 1 || selection > 4)
+                        std::cout << "\nInvalid Input\n";
+                }while(selection < 1 || selection > 4);
                 
+                do{
+                    std::cout << "\nEnter the number of seconds it took the sound to travel: ";
+                    std::cin >> seconds;
+
+                    if(seconds <= 0)
+                        std::cout << "\nSeconds must be greater than 0";
+                }while(seconds <= 0);
+
+                distance = seconds * 1/SPEED[selection - 1];
+                std::cout << "\n" << "The sound travaled " << distance  << " meters.";
+                break;
+            }
+            case 22:{
+                const std::string SUBSTANCE_F[] = {"Oxygen", "Ethyl Alcohol", "Mercury", "Water"};
+                const float FREEZING_POINT[] = {-362, -173, 38, 32};
+                const std::string SUBSTANCE_B[] = {"Mercury", "WWater", "Ethyl Alcohol", "Oxygen"};
+                const float BOILING_POINTS[] = {676, 212, 172, -306};
+                float temperature;
+
+                std::cout << "\nEnter a temperature in F: ";
+                std::cin >> temperature;
+
+                for(short count = 0; count < 4; count++){
+                    if(temperature <= FREEZING_POINT[count])
+                        std::cout  << "\n" << SUBSTANCE_F[count] << " will freeze";
+                    if(temperature >= BOILING_POINTS[count])
+                        std::cout  << "\n" << SUBSTANCE_B[count] << " will boil";
+                }
+                break;
+            }
+            case 23:{
+                short choice;
+                do{
+                    std::cout << "\nSelect an option: ";
+                    std::cout << "\n\n1. Calculate the Area of a Circle\n2. Calculate the Area of a Rectangle";
+                    std::cout << "\n3. Calculate the Area of a Trianble\n4. Quit\n\nSelection: ";
+                    std::cin >> choice;
+                    if(choice < 1 || choice > 4)
+                        std::cout << "\nInvalid Input\n";
+                }while(choice < 1 || choice > 4);
+
+                switch(choice){
+                    case 1:{
+                        float radius;
+                        const float PI = 3.14159;
+                            do{
+                                std::cout << "\nEnter the radius: ";
+                                std::cin >> radius;
+
+                                if(radius < 0)
+                                    std::cout << "\nRadius must be a positive numer\n";
+
+                            }while(radius < 0);
+                            std::cout << "Area: " << PI * pow(radius, 2);
+                            break;
+                    }
+                    case 2:{
+                        float width, length;
+                        do{
+                            std::cout << "\nEnter the length and width of rectangle: ";
+                            std::cin >> length >> width;
+
+                            if(length < 0 || width < 0 )
+                                std::cout << "\nLength and width must be positive\n";
+                        }while(length < 0 || width < 0);
+                        
+                        std::cout << "Area: " << length * width;
+                        break;
+                    }
+                    case 3:{
+                        float base, height;
+                        do{
+                            std::cout << "\nEnter base and height: ";
+                            std::cin >> base >> height;
+                            if(base < 0 || height < 0)
+                                std::cout << "\nBase and Height must be positive\n";
+                        }while(base < 0 || height < 0);
+
+                        std::cout << "Area: " << base * height * .5;
+                        break;
+                    }
+                    case 4:{
+                        std::cout << "\nShutting Down\n";
+                        break;
+                    }
+                }
+                break;
+            }
+            case 24:{
+                float starting_time, minutes;
+                const float LOWER_LIMTS[] = {19.01, 7.00, 0};
+                const float RATES[] = {0.20, 0.45, 0.05};
+
+                do{
+                    std::cout << "\nEnter starting time of call (HH.MM): ";
+                    std::cin >> starting_time;
+                    std::cout << "How many minutes was the call: ";
+                    std::cin >> minutes;
+                    if(starting_time < 0 || starting_time > 23.59)
+                        std::cout << "\nStarting time must be within 0 and 23:59\n";
+                    if((starting_time - static_cast<int>(starting_time)) >= 60)
+                        std::cout << "\n.MM must not be greater than 59\n";
+                    if(minutes < 0)
+                        std::cout << "\nMinutes cannot be less than 0\n";
+                }while(starting_time < 0 || starting_time > 23.59 || (starting_time - static_cast<int>(starting_time) >= 50)||minutes < 0);
+
+                bool found = false;
+                float total;
+                for(short index = 0; !found && index < 4; index++){
+                    if(starting_time > LOWER_LIMTS[index]){
+                        found = true;
+                        total = minutes * RATES[index];
+                    }
+                }
+                std::cout << "\nPrice: $ " << total;
+                break;
+            }
+            case 25:
+            case 26:
+            case 27:{
+                short package, minutes;
+                float total = 0;
+                
+                do{
+                    std::cout << "\nWhich package do you have? \n\n1. Package A\n2. Package B\n3. Package C\n";
+                    std::cout << "\nSelection: ";
+                    std::cin >> package;
+                    std::cout << "\nHow many minutes were consumed: ";
+                    std::cin >> minutes;
+                    if(package < 1 || package > 3)
+                        std::cout << "\nINVALID INPUT\n";
+                    if(minutes < 0)
+                        std::cout << "\nMinutes cannot be negative\n";
+                }while(package < 1 || package > 3 || minutes < 0);
+
+                switch(package){
+                    case 1:{
+                        const float AVA_MIN = 450, FLAT_RATE = 39.99, ADD_MIN_RATE = 0.45;
+                        if(minutes > AVA_MIN)
+                            total = ADD_MIN_RATE * (minutes - AVA_MIN);
+
+                        total += FLAT_RATE;
+                        std::cout << "\nTotal Due: $ " << total;                       
+                        break;
+                    }
+                    case 2:{
+                        const float AVA_MIN = 900, FLAT_RATE = 59.99, ADD_MIN_RATE = 0.40;
+                        if(minutes > AVA_MIN)
+                            total = ADD_MIN_RATE * (minutes - AVA_MIN);
+
+                        total += FLAT_RATE;
+                        std::cout << "\nTotal Due: $ " << total;
+                        break;
+                    }
+                    case 3:{
+                        const float FLAT_RATE = 69.99;
+                        total += FLAT_RATE;
+                        std::cout << "\nTotal Due: $ " << total;
+                        break;
+                    }
+                }
+            break;
+            }
+            case 28:{
+                std::cout << "\nSHUTTING DOWN";
+                break;
             }
             default:
                 std::cout << "\nINVALID INPUT";
