@@ -16,6 +16,6 @@ int main(){
         sum+= counter;
     }
     
-    cout << "\nSum: " << sum << "\n";
+    cout << "\nSum: " << sum << "\n\n";
     return 0;
 }

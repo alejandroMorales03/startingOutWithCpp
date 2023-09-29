@@ -9,6 +9,7 @@ int main(){
         cout << counter << "\t" << static_cast<char>(counter) << "\t";
         counter++;
     }while(counter <= 127);
+    cout << "\n\n";
     return 0;
 
 
