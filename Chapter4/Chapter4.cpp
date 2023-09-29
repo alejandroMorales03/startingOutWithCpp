@@ -711,4 +711,5 @@ int main(){
         
         std::cout << "\n";
     }while(choice != 25);
+    return 0;
 }

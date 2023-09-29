@@ -8,7 +8,7 @@ int main(){
         cout << "\nEnter a positive number: ";
         cin >> input_number;
         if(input_number < 0)
-        cout << "\nINVALID INPUT!\n";
+        cout << "\nINVALID INPUT!\n* The number must be positive\n";
     }while(input_number < 0);
     short sum = 0;
 

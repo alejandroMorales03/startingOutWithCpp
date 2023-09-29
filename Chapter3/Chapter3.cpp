@@ -475,4 +475,5 @@ int main(){
                 std::cin.ignore();       
         }while((choice) < 'A'|| choice > 'Y');
     }while(choice != 'Y');
+    return 0;
 }
