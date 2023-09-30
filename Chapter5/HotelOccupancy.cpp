@@ -19,9 +19,9 @@ int main(){
         do{
             cout << "\nHow many rooms are in floor " << c_floor << ": ";
             cin >> rooms;
-            if(rooms < 0)
-                cout << "\nINVALID INPUT!\n*Rooms cannot be negative\n";
-        }while(rooms < 0);
+            if(rooms < 10)
+                cout << "\nINVALID INPUT!\n*Rooms cannot be less than 10\n";
+        }while(rooms < 10);
         total_rooms += rooms;
        
         do{
