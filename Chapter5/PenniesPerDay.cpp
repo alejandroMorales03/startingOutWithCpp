@@ -4,7 +4,7 @@
 using namespace std;
 
 int main(){
-    unsigned short days_worked;
+    short days_worked;
     do{
         cout << "\nEnter the number of days worked: ";
         cin >> days_worked;

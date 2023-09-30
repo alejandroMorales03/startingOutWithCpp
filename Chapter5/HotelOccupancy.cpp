@@ -3,7 +3,7 @@
 using namespace std;
 int main(){
 
-    unsigned short floors, total_rooms = 0, occupied_rooms = 0;
+    short floors, total_rooms = 0, occupied_rooms = 0;
     float occupancy_rate;
 
     do{
