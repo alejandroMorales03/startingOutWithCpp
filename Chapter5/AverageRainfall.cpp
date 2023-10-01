@@ -30,6 +30,7 @@ int main(){
     cout << "\nNumber of months: " << years * MONTHS << "\n";
     cout << "Total Inches of Rainfall: " << total_inches << "\n";
     cout << "Average Monthly Rainfall: " << total_inches / (years * MONTHS) << "\n\n";
+    return 0;
     
 
 

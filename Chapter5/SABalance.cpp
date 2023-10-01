@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -67,7 +68,18 @@ int main(){
         cout << "\nEnding Balance: $         " << balance;
         cout << "\nTotal Amount of Deposits: " << total_deposits;
         cout << "\nTotal Withdrawals:        " << total_withdrawals;
-        cout << "\nTotal Interest Earned:    " << total_int_earned << "\n\n";
+        cout << "\nTotal Interest Earned:    " << total_int_earned;
+
+        ofstream report("/workspaces/startingOutWithCpp/Chapter5/Report.txt");
+        if(report.fail())
+            cout << "\n\nReport could not be saved do a file error";
+        else{
+            report << "Ending Balance: $         " << balance;
+            report << "\nTotal Amount of Deposits: " << total_deposits;
+            report << "\nTotal Withdrawals:        " << total_withdrawals;
+            report << "\nTotal Interest Earned:    " << total_int_earned;
+            cout << "\n\nReport saved\n\n";
+        }
     }
     return 0;
 

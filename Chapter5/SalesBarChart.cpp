@@ -21,5 +21,6 @@ for(short index = 0; index < 5; index++){
 }
 
 cout << "\n\n";
+return 0;
 
 }
