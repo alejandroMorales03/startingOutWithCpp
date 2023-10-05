@@ -59,5 +59,5 @@ void findHighest(){
             max_i = i;
         }
     }
-    cout << "\nThe highest selling division was " << DIVISIONS[max_i] << " with $ " << max << "\n";
+    cout << "\nThe highest selling division was " << DIVISIONS[max_i] << " with $ " << max << "\n\n";
 }
