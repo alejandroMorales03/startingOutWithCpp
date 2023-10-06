@@ -28,7 +28,7 @@ return 0;
 
 bool inputValidation(float checkValue, float minValue, float maxValue){
     bool valid = false;
-    if(checkValue >= minValue && checkValue >= maxValue)
+    if(checkValue >= minValue && checkValue <= maxValue)
         valid = true;
     else
         cout << "\nINVALID INPUT\n* All data entered must be positive.\n";
