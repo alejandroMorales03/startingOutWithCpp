@@ -68,6 +68,7 @@
         "*.tcc": "cpp",
         "deque": "cpp",
         "memory_resource": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "thread": "cpp"
     }
 }
