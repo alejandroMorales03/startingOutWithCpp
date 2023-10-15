@@ -1,0 +1,9 @@
+mild 12
+medium 23
+sweet 34
+hot 55
+zesty 1
+
+Total Jars Sold: 125
+Highest Selling: hot
+Lowest Selling:  zesty
