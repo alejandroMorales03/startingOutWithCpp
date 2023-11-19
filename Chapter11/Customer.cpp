@@ -119,19 +119,19 @@ void addClient(vector<Customer>& current_clients){
 
 }
 bool validatePhoneNumber(string phone_number){
-    bool isValid = false;
+    bool isValid = true;
     
     if(phone_number.length() != 14)
-        isValid = true;
+        isValid = false;
 
     if(phone_number.at(0) != '(' || phone_number.at(4) != ')' || 
        phone_number.at(5) != ' ' || phone_number.at(9) != '-')
-        isValid = true;
+        isValid = false;
 
     for(short index = 0; index < phone_number.length() && !isValid; index++){
         if(index != 0 && index != 4 && index != 5 && index != 9){
             if(!isdigit(phone_number.at(index)))
-                isValid = true;
+                isValid = false;
         }
     }
 
